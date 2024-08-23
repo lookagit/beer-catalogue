@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
 
+// components
+import LandingPageTitle from '../../components/LandingPageTitle';
+import Hero from '../../components/Hero';
+import Loader from '../../components/Loader';
+
 // constants
 import { PRODUCT_TYPES } from '../../constants';
 
@@ -19,8 +24,17 @@ const LandingPage = () => {
     }
   }, []);
 
+  if (products.length === 0 && !fetched) {
+    return <Loader />;
+  }
+
   return (
     <>
+      <Hero 
+        title="Welcome to the Beer Catalogue"
+        subtitle="Discover your favorite beers"
+      />
+      <LandingPageTitle title="All Beers" />
       {products?.map((product) => (<div>{product.name}</div>))}
     </>
   );

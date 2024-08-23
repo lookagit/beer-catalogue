@@ -1,0 +1,30 @@
+.hero {
+  background: url('https://images.getbento.com/accounts/83cd69da479ca2494ff741c86d29e4de/media/images/70272Syc024-2.JPG?w=1800&fit=crop&auto=compress,format&crop=focalpoint&fp-x=0.5&fp-y=0.5') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+  box-shadow: inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 48px;
+}
+
+.hero {
+  padding: 100px 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+      padding: 20px;
+      font-size: 24px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+}
