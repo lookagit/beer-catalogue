@@ -1,0 +1,35 @@
+.controls {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.controls input, .controls select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.controls input:focus, .controls select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.controls button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.controls button:hover {
+  background-color: #0056b3;
+}
