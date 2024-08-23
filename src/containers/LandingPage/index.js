@@ -2,9 +2,10 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 
 // components
 import Controls from '../../components/Controls';
-import LandingPageTitle from '../../components/LandingPageTitle';
 import Hero from '../../components/Hero';
+import LandingPageTitle from '../../components/LandingPageTitle';
 import Loader from '../../components/Loader';
+import ProductsGrid from '../../components/ProductsGrid';
 
 // constants
 import { PRODUCT_TYPES, SORTING_TYPES } from '../../constants';
@@ -70,7 +71,7 @@ const LandingPage = () => {
         handleFilterChange={handleFilterChange}
       />
       <LandingPageTitle title="All Beers" />
-      {filteredProducts?.map((product) => (<div>{product.name}</div>))}
+      <ProductsGrid products={filteredProducts} />
     </>
   );
 };
