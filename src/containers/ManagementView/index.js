@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from 'react';
 
+// components
+import SalesChart from '../../components/SalesChart';
 
 // store
 import useProductsStore from '../../store';
@@ -43,6 +45,7 @@ const ManagementView = () => {
       <div className='management-title'>
         <h1>Management View</h1>
       </div>
+      <SalesChart />
       <form onSubmit={handleSubmit} className="beer-form">
         <div>
           <h3>Add a New Beer</h3>
