@@ -50,4 +50,9 @@ const useProductsStore = create(devtools((set) => ({
   }),
 }), { enabled: Boolean(window.__REDUX_DEVTOOLS_EXTENSION__) }));
 
+export const getProductById = (products, id) => {
+  const parsedId = parseInt(id)
+  return products.find((product) => product.id === parsedId)
+};
+
 export default useProductsStore;
