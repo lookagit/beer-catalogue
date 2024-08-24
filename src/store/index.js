@@ -5,7 +5,7 @@ import { devtools } from 'zustand/middleware'
 import { enrichCommonProperties, enrichProduct } from '../utils/enrichProduct';
 
 // constants
-import { API_URLS } from '../constants';
+import { API_URLS, PRODUCT_TYPES } from '../constants';
 
 const useProductsStore = create(devtools((set) => ({
   products: [],
@@ -13,6 +13,14 @@ const useProductsStore = create(devtools((set) => ({
   sales: {},
   salesByBrand: {},
   totalSales: 0,
+  addProduct: (newProduct) => set((state) => ({
+    products: [...state.products, { 
+      ...newProduct,
+      id: state.products.length + 1,
+      ...enrichCommonProperties(newProduct),
+      type: PRODUCT_TYPES.beers
+    }]
+  })),
   buyProduct: (productId) => set((state) => {
     const product = state.products.find(b => b.id === productId);
     const brand = product ? product.brand : 'Unknown';
