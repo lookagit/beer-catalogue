@@ -16,8 +16,6 @@ import './LandingPage.css';
 // store
 import useProductsStore from '../../store';
 
-
-
 const LandingPage = () => {
   const [filters, setFilters] = useState({
     brand: '',
