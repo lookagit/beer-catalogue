@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// components
+import BuyButton from '../BuyButton';
+
 // style
 import './ProductCardItem.css'
 
@@ -19,6 +22,7 @@ const ProductCardItem = ({ product }) => ((
       <p>Price: {product.price}</p>
     </div>
     <div className='product-item-buttons'>
+      <BuyButton productId={product.id} />
       <Link to={`/beer/${product.id}`} className="button-primary">View Details</Link>
     </div>
   </div>
