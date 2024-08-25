@@ -1,15 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-// components
 import BuyButton from '../BuyButton';
+import './ProductCardItem.css';
 
-// style
-import './ProductCardItem.css'
-
-
-const ProductCardItem = ({ product }) => ((
-  <div key={product.id} className="product-item">
+const ProductCardItem = ({ product }) => (
+  <div className="product-item">
     <div className='product-item-top-component'>
       <img 
         src={product.image} 
@@ -26,6 +21,6 @@ const ProductCardItem = ({ product }) => ((
       <Link to={`/beer/${product.id}`} className="button-primary">View Details</Link>
     </div>
   </div>
-));
+);
 
 export default ProductCardItem;

@@ -1,20 +1,44 @@
 import React from 'react';
-
-// components
+import { FixedSizeGrid as Grid } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
 import ProductCardItem from '../ProductCardItem';
 
-// style
-import './ProductsGrid.css';
+const ProductsGrid = ({ products }) => {
+  return (
+    <div style={{ height: '100vh', width: '100%', marginTop: '10px', overflow: 'hidden' }}>
+      <AutoSizer>
+        {({ height, width }) => {
+          const columnWidth = width > 768 ? width / 4 : width;
+          const columnCount = width > 768 ? 4 : 1;
+          return (
+            <Grid
+              columnCount={columnCount}
+              columnWidth={columnWidth}
+              height={height}
+              rowCount={Math.ceil(products.length / columnCount)}
+              rowHeight={370} // Adjust based on your ProductCardItem height
+              width={width}
+              itemData={products}
+            >
+              {GridCell}
+            </Grid>
+          );
+        }}
+      </AutoSizer>
+    </div>
+  );
+};
 
-const ProductsGrid = ({ products }) => (
-  <>
-    <div className="products-page-grid">
-      {products?.map((product) => <ProductCardItem key={product.id} product={product} />)}
+const GridCell = ({ columnIndex, rowIndex, style, data }) => {
+  const product = data[rowIndex * 4 + columnIndex];
+  if (!product) {
+    return null;
+  }
+  return (
+    <div style={style}>
+      <ProductCardItem product={product} />
     </div>
-    <div>
-      {!products?.length && <div>NO RESULTS</div>}
-    </div>
-  </>
-)
+  );
+};
 
 export default ProductsGrid;
